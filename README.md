@@ -28,3 +28,4 @@ The app doesn`t have default method for creating admin, so after launching the a
 INSERT INTO public.t_user_roles(user_id, roles_id)
   VALUES (1, 2);
 
+https://github.com/lilavera/clinicApp/issues/1
