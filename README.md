@@ -7,8 +7,9 @@ Application for Clinic:
 
 # Technologies:
 BackEnd:
-- SpringBoot
-- SpringSecurity
+- JDK 8+;
+- Intellij Idea;
+- Spring (Spring Boot, Spring MVC, Spring Security);
 - Hibernate
 - PostgreSQL
 - JSP
