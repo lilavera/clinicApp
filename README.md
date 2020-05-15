@@ -11,6 +11,7 @@ BackEnd:
 - SpringSecurity
 - Hibernate
 - PostgreSQL
+- JSP
 
 
 FrontEnd:
