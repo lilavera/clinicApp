@@ -18,11 +18,11 @@
                 <sec:authorize access="hasRole('ROLE_ADMIN')">
                     <li class="nav-item"> <a class="nav-link" href="/add-doctor">Add doctor</a> </li>
                 </sec:authorize>
-<%--                <sec:authorize access="isAuthenticated()">--%>
-                <sec:authorize access="hasRole('ROLE_ADMIN')" >
+                <sec:authorize access="isAuthenticated()">
+                <sec:authorize access="!hasRole('ROLE_ADMIN')" >
                     <li class="nav-item" style=""> <a class="nav-link" href="/add-visit">Add visit</a> </li>
                 </sec:authorize  >
-<%--                </sec:authorize  >--%>
+                </sec:authorize  >
                 <sec:authorize access="hasRole('ROLE_ADMIN')">
                     <li class="nav-item" style=""> <a class="nav-link" href="/add-shift">Add shift for doctor</a> </li>
                 </sec:authorize>

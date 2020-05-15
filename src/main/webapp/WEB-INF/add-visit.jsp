@@ -36,12 +36,16 @@
             <label for="visit-date" class="col-2 col-form-label">Date</label>
         <div class="col-10">
                 <form:input path ="visitDate" type="date" name="visitDateTime" id="visit-date" class="form-control"></form:input>
+            <form:errors path="visitDate"></form:errors>
+                ${visitError}
             </div>
         </div>
         <div class="form-group row">
                 <label for="visit-time" class="col-2 col-form-label">Time:</label>
             <div class="col-10">
                 <form:input class="form-control" path = "visitTime" type="time" name="visit-time" id="visit-time" step="900" min="08:00:00" max="17:45:00" ></form:input>
+                <form:errors path="visitTime"></form:errors>
+                    ${visitError}
             </div>
         </div>
         <div class="form-group row">
