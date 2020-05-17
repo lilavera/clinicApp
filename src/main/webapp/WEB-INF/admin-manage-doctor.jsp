@@ -1,6 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,12 +7,13 @@
     <title>Manage pateints</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          type="text/css">
     <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
 </head>
 
 <body>
-<%@include file="navbar.jsp"%>
+<%@include file="navbar.jsp" %>
 <div>
     <div class="py-5">
         <div class="container">
@@ -41,9 +41,7 @@
                                             <input type="hidden" name="action" value="delete"/>
                                             <button type="submit" class="btn btn-danger ">Delete</button>
                                         </form>
-
                                     </td>
-
                                 </tr>
                             </c:forEach>
                             </tbody>
@@ -53,6 +51,7 @@
             </div>
         </div>
     </div>
-    <%@include file="footer.jsp"%>
+</div>
+    <%@include file="footer.jsp" %>
 </body>
 </html>

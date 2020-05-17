@@ -48,7 +48,7 @@ public Doctor saveDoctor(Doctor doctor){
 }
 
 public boolean checkIfDoctorExists(Doctor doctor){
-    List<Doctor> doctorFromDB = doctorRepository.findDoctorByFirstNameAndAndLastName(doctor.getFirstName(),doctor.getLastName());
+    List<Doctor> doctorFromDB = doctorRepository.findDoctorByFirstNameAndLastName(doctor.getFirstName(),doctor.getLastName());
 
     if(doctorFromDB.size()==0) {
         return false;

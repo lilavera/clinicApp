@@ -12,7 +12,7 @@ import java.time.LocalTime;
 public interface VisitRepository extends JpaRepository<Visit,Long> {
 
 TimeTable findAllByDoctorAndAndVisitDateAndVisitTime(LocalDate visitDate, LocalTime visitTime,  Doctor doctor);
-TimeTable findByDoctorAndUserAndVisitDateAndVisitTime(LocalDate visitDate, LocalTime visitTime,  Doctor doctor,User user);
+TimeTable findAllByDoctorAndUserAndVisitDateAndVisitTime( Doctor doctor,User user,LocalDate visitDate, LocalTime visitTime);
 TimeTable findByVisitTime(LocalTime visitTime);
 TimeTable findByVisitDate(LocalDate visitDate);
 
