@@ -187,35 +187,49 @@ public class AdminController {
                                   @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate visitDate,
                                   @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.TIME) LocalTime visitTime ) {
         {
-            if (result.hasErrors()) {
-                List <Specialization> specializations = doctorAdminService.findAllSpecialization();
-                List<Doctor> doctor = doctorAdminService.findAll();
-                return "/add-visit";
-            }
             DayOfWeek dayWeek = visitDate.getDayOfWeek();
             int dayOfWeekVisitValue = dayWeek.getValue();
             long specID = Long.parseLong(specializationId);
             int doctorid = Integer.parseInt(doctorId);
             Specialization specialization = specializationRepository.findBySpecializationId(specID).get(0);
             User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-             Doctor doctor = doctorRepository.findByDoctorId(doctorid).get(0);
-             if(visitRepository.findAllByDoctorAndUserAndVisitDateAndVisitTime(doctor,user,visitDate,visitTime) != null){
-                 List <Specialization> specializations = doctorAdminService.findAllSpecialization();
-                 List<Doctor> doctors= doctorAdminService.findAll();
-                 model.addAttribute("visitError","Visit already exists");
-                 return "/add-visit";
-             }
-            if(timetableRepository.findAllByDoctor(doctor)==null){
-                model.addAttribute("visitError", "Sorry, doctor hasn`t defined his timetable yet,try choose antoher one");
+            Doctor doctor = doctorRepository.findByDoctorId(doctorid).get(0);
+
+
+            if (result.hasErrors()) {
                 List <Specialization> specializations = doctorAdminService.findAllSpecialization();
                 List<Doctor> doctors = doctorAdminService.findAll();
+                model.addAttribute("visitForm", new Visit());
+                model.addAttribute("specializations", specializations);
+                model.addAttribute("doctor", doctors);
+                return "/add-visit";
+            }
+          else   if(visitRepository.findAllByDoctorAndUserAndVisitDateAndVisitTime(doctor,user,visitDate,visitTime) != null){
+                 model.addAttribute("visitError","Visit already exists");
+                 List <Specialization> specializations = doctorAdminService.findAllSpecialization();
+                 List<Doctor> doctors= doctorAdminService.findAll();
+                 model.addAttribute("visitForm", new Visit());
+                 model.addAttribute("specializations", specializations);
+                 model.addAttribute("doctor", doctors);
+                 return "/add-visit";
+             }
+          else  if(timetableRepository.findAllByDoctor(doctor)==null){
+                model.addAttribute("visitError", "Sorry, doctor hasn`t defined his timetable yet,try choose antoher one");
+               List <Specialization> specializations = doctorAdminService.findAllSpecialization();
+                List<Doctor> doctors= doctorAdminService.findAll();
+                model.addAttribute("visitForm", new Visit());
+                model.addAttribute("specializations", specializations);
+                model.addAttribute("doctor", doctors);
                 return "/add-visit";
             }
 
-        if(timetableRepository.findAllByDoctor(doctor).getShiftStart().isAfter(visitTime) || !timetableRepository.findAllByDoctor(doctor).getShiftStart().equals(visitTime) ||  timetableRepository.findAllByDoctor(doctor).getShiftEnd().isBefore(visitTime) || timetableRepository.findAllByDoctor(doctor).getDayOfWeek()!= dayOfWeekVisitValue ){
+     else   if(timetableRepository.findAllByDoctor(doctor).getShiftStart().isAfter(visitTime) ||  timetableRepository.findAllByDoctor(doctor).getShiftEnd().isBefore(visitTime) || timetableRepository.findAllByDoctor(doctor).getDayOfWeek()!= dayOfWeekVisitValue ){
             model.addAttribute("visitError", "Sorry, doctor doesn`t work at those days/time, please try to provide another time/date");
             List <Specialization> specializations = doctorAdminService.findAllSpecialization();
-            List<Doctor> doctors = doctorAdminService.findAll();
+            List<Doctor> doctors= doctorAdminService.findAll();
+            model.addAttribute("visitForm", new Visit());
+            model.addAttribute("specializations", specializations);
+            model.addAttribute("doctor", doctors);
             return "/add-visit";
         }
             model.addAttribute("user",user);

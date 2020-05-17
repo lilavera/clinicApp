@@ -17,6 +17,7 @@
 <body>
 <%@include file="navbar.jsp" %>
 <form:form method="POST" action="/add-doctor" modelAttribute="doctorForm">
+    <form:errors path="*" class="has-error"/>
     <div class="py-5">
         <div class="container">
             <div class="row">

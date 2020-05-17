@@ -15,6 +15,7 @@
 <body>
 <form:form method="POST" modelAttribute="userForm">
     <jsp:include page="navbar.jsp"/>
+    <form:errors path="*" class="has-error"/>
     <div class="py-5">
         <div class="container">
             <div class="row">

@@ -41,11 +41,11 @@
                 <div class="col-10">
                     <form:select path="dayOfWeek" class="form-control" id="day-list" name="day-list" onchange="test()"
                                  title="">
-                        <option value="1">Poniedziałek</option>
-                        <option value="2">Wtorek</option>
-                        <option value="3">Środa</option>
-                        <option value="4">Czwartek</option>
-                        <option value="5">Piątek</option>
+                        <option value="1">Monday</option>
+                        <option value="2">Tuesday</option>
+                        <option value="3">Wednesday</option>
+                        <option value="4">Thursday</option>
+                        <option value="5">Friday</option>
                     </form:select>
                     <form:errors path="dayOfWeek"></form:errors>
                         ${timeError}
