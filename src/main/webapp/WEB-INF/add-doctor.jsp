@@ -52,7 +52,6 @@
                                     <option value=${specialization.specializationName}>${specialization.specializationName}</option>
                                 </c:forEach>
                             </form:select>
-                            <div class="form-group row"></div>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary" name="add-doctor-button" id="submit" value="save">

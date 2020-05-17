@@ -22,7 +22,7 @@
                 <form method="POST" action="/login">
                     <div class="form-group row"><label for="username" class="col-2 col-form-label">Username</label>
                         <div class="col-10">
-                            <input type="text" class="form-control" name="username" id="username"></div>
+                            <input type="text" class="form-control" name="username" id="username"/></div>
                     </div>
                     <div class="form-group row"><label for="password" class="col-2 col-form-label">Password</label>
                         <div class="col-10">
